@@ -73,7 +73,26 @@ namespace DataImport
             //}
             //Console.ReadKey();
 
-            //Seite 8, Aufgabe 8
+            //Seite 7, Aufgabe 9
+            //string path = @"C:/001Projects/neue_datei.csv";
+            //StreamReader sr = new StreamReader(path);
+            //List<string[]> eintraege = new List<string[]>();
+            ////Remove Header
+            //sr.ReadLine();
+            //while (!sr.EndOfStream)
+            //{
+            //    eintraege.Add(sr.ReadLine().Split(';'));
+            //}
+            //for (int i = 0; i < eintraege.Count; i++)
+            //{
+            //    if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+            //    {
+            //        Console.WriteLine(string.Join("\t", eintraege[i]));
+            //    }
+            //}
+            //Console.ReadKey();
+
+            //Seite 7, Aufgabe 10 
             string path = @"C:/001Projects/neue_datei.csv";
             StreamReader sr = new StreamReader(path);
             List<string[]> eintraege = new List<string[]>();
@@ -83,13 +102,18 @@ namespace DataImport
             {
                 eintraege.Add(sr.ReadLine().Split(';'));
             }
-            for (int i = 0; i < eintraege.Count; i++)
+            using (StreamWriter writer = new StreamWriter(@"C:/001Projects/JungeHuepfer.csv"))
             {
-                if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+                for (int i = 0; i < eintraege.Count; i++)
                 {
-                    Console.WriteLine(string.Join("\t", eintraege[i]));
+                    if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+                    {
+                        writer.WriteLine(string.Join(";", eintraege[i]));
+                        Console.WriteLine(string.Join("\t", eintraege[i]));
+                    }
                 }
             }
+
             Console.ReadKey();
 
 
