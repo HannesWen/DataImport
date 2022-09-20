@@ -73,6 +73,25 @@ namespace DataImport
             //}
             //Console.ReadKey();
 
+            //Seite 8, Aufgabe 8
+            string path = @"C:/001Projects/neue_datei.csv";
+            StreamReader sr = new StreamReader(path);
+            List<string[]> eintraege = new List<string[]>();
+            //Remove Header
+            sr.ReadLine();
+            while (!sr.EndOfStream)
+            {
+                eintraege.Add(sr.ReadLine().Split(';'));
+            }
+            for (int i = 0; i < eintraege.Count; i++)
+            {
+                if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+                {
+                    Console.WriteLine(string.Join("\t", eintraege[i]));
+                }
+            }
+            Console.ReadKey();
+
 
 
         }
