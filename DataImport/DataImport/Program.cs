@@ -9,6 +9,8 @@ namespace DataImport
 {
     internal class Program
     {
+        public static object SteamReader { get; private set; }
+
         static void Main(string[] args)
         {
             //004 Aufgaben Wiederholung Tag 1
@@ -41,11 +43,24 @@ namespace DataImport
             //Console.ReadKey();
 
             //Seite 7, Aufgabe 6
-            FileInfo fi = new FileInfo("T:/WKH_EXC/Trash/cbec/BMI-data.csv");
-            if (fi.Exists)
+            //FileInfo fi = new FileInfo("T:/WKH_EXC/Trash/cbec/BMI-data.csv");
+            //if (fi.Exists)
+            //{
+            //    fi.CopyTo("C:/001Projects/meine_datei.csv");
+            //}
+            //Console.ReadKey();
+
+            //Seite 7, Aufgabe 7
+            string path = @"C:/001Projects/neue_datei.csv";
+            StreamReader sr = new StreamReader(path);
+            while (!sr.EndOfStream)
             {
-                fi.CopyTo("C:/001Projects/meine_datei.csv");
+                Console.WriteLine(sr.ReadLine());
             }
+            Console.ReadKey();
+
+
+
 
 
         }
