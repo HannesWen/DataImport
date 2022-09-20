@@ -51,15 +51,27 @@ namespace DataImport
             //Console.ReadKey();
 
             //Seite 7, Aufgabe 7
-            string path = @"C:/001Projects/neue_datei.csv";
-            StreamReader sr = new StreamReader(path);
-            while (!sr.EndOfStream)
-            {
-                Console.WriteLine(sr.ReadLine());
-            }
-            Console.ReadKey();
+            //string path = @"C:/001Projects/neue_datei.csv";
+            //StreamReader sr = new StreamReader(path);
+            //while (!sr.EndOfStream)
+            //{
+            //    Console.WriteLine(sr.ReadLine());
+            //}
+            //Console.ReadKey();
 
-
+            //Seite 7, Aufgabe 8
+            //string path = @"C:/001Projects/neue_datei.csv";
+            //StreamReader sr = new StreamReader(path);
+            //List<string[]> eintraege = new List<string[]>();
+            //while (!sr.EndOfStream)
+            //{
+            //    eintraege.Add(sr.ReadLine().Split(';'));
+            //}
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(string.Join("\t", eintraege[i]));
+            //}
+            //Console.ReadKey();
 
 
 
