@@ -93,6 +93,29 @@ namespace DataImport
             //Console.ReadKey();
 
             //Seite 7, Aufgabe 10 
+            //string path = @"C:/001Projects/neue_datei.csv";
+            //StreamReader sr = new StreamReader(path);
+            //List<string[]> eintraege = new List<string[]>();
+            ////Remove Header
+            //sr.ReadLine();
+            //while (!sr.EndOfStream)
+            //{
+            //    eintraege.Add(sr.ReadLine().Split(';'));
+            //}
+            //using (StreamWriter writer = new StreamWriter(@"C:/001Projects/JungeHuepfer.csv"))
+            //{
+            //    for (int i = 0; i < eintraege.Count; i++)
+            //    {
+            //        if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+            //        {
+            //            writer.WriteLine(string.Join(";", eintraege[i]));
+            //            Console.WriteLine(string.Join("\t", eintraege[i]));
+            //        }
+            //    }
+            //}
+            //Console.ReadKey();
+
+            //Seite 7, Aufgabe 11
             string path = @"C:/001Projects/neue_datei.csv";
             StreamReader sr = new StreamReader(path);
             List<string[]> eintraege = new List<string[]>();
@@ -102,18 +125,21 @@ namespace DataImport
             {
                 eintraege.Add(sr.ReadLine().Split(';'));
             }
-            using (StreamWriter writer = new StreamWriter(@"C:/001Projects/JungeHuepfer.csv"))
+
+            for (int t = 18; t < 101 ; t++)
             {
-                for (int i = 0; i < eintraege.Count; i++)
+                using (StreamWriter writer = new StreamWriter($@"C:/001Projects/Gewichte_{t}.csv", false))
                 {
-                    if (Convert.ToInt32(eintraege[i][2]) < 20 && eintraege[i][0] == "m")
+                    for (int i = 0; i < eintraege.Count; i++)
                     {
-                        writer.WriteLine(string.Join(";", eintraege[i]));
-                        Console.WriteLine(string.Join("\t", eintraege[i]));
+                        if (Convert.ToInt32(eintraege[i][2]) == t)
+                        {
+                            writer.WriteLine(string.Join(";", eintraege[i]));
+                            Console.WriteLine(string.Join("\t", eintraege[i]));
+                        }
                     }
                 }
             }
-
             Console.ReadKey();
 
 
